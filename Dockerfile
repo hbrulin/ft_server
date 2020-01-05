@@ -26,6 +26,7 @@ RUN chown -R www-data /var/www/html/phpmyadmin && chmod -R 755 /var/www/html/php
 
 # configure nginx vhost
 COPY srcs/default /etc/nginx/sites-available/default
+COPY srcs/index.html /var/www/html
 #faut-il symlink to sites enabled?
 #RUN ln -s /etc/nginx/sites-available/default/ etc/nginx/sites-enabled/default 
 
