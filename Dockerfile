@@ -23,6 +23,9 @@ COPY srcs/phpmyadmin /var/www/html/phpmyadmin
 RUN chown -R www-data /var/www/html/phpmyadmin && chmod -R 755 /var/www/html/phpmyadmin
 
 #ssl
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+	-subj '/C=FR/ST=75/L=Paris/O=42/CN=ncolomer' \
+	-keyout /etc/ssl/certs/localhost.key -out /etc/ssl/certs/localhost.crt
 
 # configure nginx vhost
 COPY srcs/default /etc/nginx/sites-available/default
@@ -30,9 +33,9 @@ COPY srcs/index.html /var/www/html
 #faut-il symlink to sites enabled?
 #RUN ln -s /etc/nginx/sites-available/default/ etc/nginx/sites-enabled/default 
 
-#ecoute port 80
+#ecoute ports
 EXPOSE 80
-#EXPOSE 443
+EXPOSE 443
 
 COPY srcs/entry.sh /etc/entry.sh
 COPY srcs/config.sql /etc/config.sql

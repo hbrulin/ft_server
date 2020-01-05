@@ -23,8 +23,10 @@ server {
 	listen [::]:80 default_server ipv6only:on;
 
 	# SSL configuration
-	# listen 443 ssl http2;
-    	#listen [::]:443 ssl http2;
+	listen 443 ssl;
+    	ssl on;
+    	ssl_certificate /etc/ssl/certs/localhost.crt;
+    	ssl_certificate_key /etc/ssl/certs/localhost.key;
 
 	#mon serveur s'appelle comme ca
     	server_name localhost;
