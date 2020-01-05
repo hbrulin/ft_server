@@ -36,6 +36,7 @@ COPY srcs/index.html /var/www/html
 #ecoute ports
 EXPOSE 80
 EXPOSE 443
+EXPOSE 3306
 
 COPY srcs/entry.sh /etc/entry.sh
 COPY srcs/config.sql /etc/config.sql
