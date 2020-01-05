@@ -30,8 +30,6 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 # configure nginx vhost
 COPY srcs/default /etc/nginx/sites-available/default
 COPY srcs/index.html /var/www/html
-#faut-il symlink to sites enabled?
-#RUN ln -s /etc/nginx/sites-available/default/ etc/nginx/sites-enabled/default 
 
 #ecoute ports
 EXPOSE 80
