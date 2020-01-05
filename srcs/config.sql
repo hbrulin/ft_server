@@ -1,4 +1,4 @@
-CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
 CREATE DATABASE db_wordpress;
-GRANT ALL PRIVILEGES ON db_wordpress.* TO 'newuser'@'localhost';
-flush privileges
+GRANT ALL PRIVILEGES ON db_wordpress.* TO 'admin'@'localhost';
+FLUSH PRIVILEGES;

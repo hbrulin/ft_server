@@ -20,37 +20,24 @@
 #
 server {
 	listen 80;
-	listen [::]:80 default_server ipv6only:on;
+	listen [::]:80 default_server ipv6only=on;
 
 	# SSL configuration
 	listen 443 ssl;
     	ssl on;
     	ssl_certificate /etc/ssl/certs/localhost.crt;
     	ssl_certificate_key /etc/ssl/certs/localhost.key;
-
-	#mon serveur s'appelle comme ca
-    	server_name localhost;
-
-    #ssl_certificate /etc/ssl/certs/localhost.crt;
-    #ssl_certificate_key /etc/ssl/private/localhost.key;
-
-	#ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
 	
 	#root
 	root /var/www/html;
-
 	# Add index.php to the list if you are using PHP
 	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name localhost;
 
 	#Set autoindex for no 404 error if no index file
 	location / {
 		autoindex on;
-	}
-
-	location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
 	}
 
 	location /wordpress {
