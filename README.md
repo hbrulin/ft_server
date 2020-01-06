@@ -1,21 +1,21 @@
 # ft_server 
 
-create img
-docker build -t img .
+create img : docker build -t img .
 
-run
+run :
 docker run -d -p 443:443 -p 80:80 -p 3306:3306 img
 
-see container files
+see container files :
 docker exec -ti ID
 
-stop
+stop :
 docker stop container id
 
-see running containers
+see running containers :
 docker ps
 
-clean
+clean :
+docker system prune \
 docker system prune -a
 
 tuto ssl :
