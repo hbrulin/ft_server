@@ -4,7 +4,7 @@
 docker build -t img .
 
 #run
-docker run -d -p 8080:80 -p 3306:3306 img
+docker run -d -p 80:80 -p 3306:3306 -p 443:443 img
 
 #see container files
 docker exec -ti ID
