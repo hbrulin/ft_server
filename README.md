@@ -1,5 +1,7 @@
 # ft_server 
 
+UPDATE : add ARG DEBIAN_FRONTEND=noninteractive at beginning of Dockerfile, or no frontend.
+
 create img \
 docker build -t img .
 
@@ -22,3 +24,4 @@ docker system prune -a
 tuto ssl \
 https://www.freecodecamp.org/news/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec/
 
+MDP phpmyadmin : newuser, password.
