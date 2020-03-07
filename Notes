@@ -6,7 +6,7 @@ Une fois le Dockerfile remplit avec ce qu'on veut, on peut build l'image (comme 
 docker build -t [nom-qu-on-veut-donner-a-l-image] .
 
 docker run [nom-qu-on-a-donner-a-l-image]
-Dockerfile line:1 : FROM debian:buster-slim
+Dockerfile : FROM debian:buster-slim
 
 L'instruction FROM permet de spécifier une image existante sur laquelle on veut se baser. Parfait pour nous, on va démarrer depuis une image qui contient l'OS Debian Buster.
 
@@ -171,21 +171,3 @@ On va pouvoir récupérer le fichier de sauvegarde de l'état de la base de donn
 On peut maintenant placer ce fichier dans nos sources puis ajouter une instruction au run script pour importer la base.
 
 src/container_entrypoint.sh line:19 : mysql wordpress -u root < wordpress.sql
-
-SSL
-https://youtu.be/NXyE3mayrtg
-
-https://youtu.be/_UpuZ0Y3k-c
-
-https://lehollandaisvolant.net/?d=2019/01/07/22/57/47-localhost-et-https
-
-https://letsencrypt.org/fr/docs/certificates-for-localhost/
-
-https://r.je/guide-lets-encrypt-certificate-for-local-development
-
-Si on a des 'erreurs' de type connexion non privée en utilisant ssl, c'est ok. On n'est pas censés utiliser ssl pour du local, le but du sujet n'est pas de réussir à faire accepter notre certificat self-signed ou local au navigateur.
-
-Autres
-Pour afficher les logs du serveur en temps réel :
-
-    tail -f /var/log/nginx/access.log /var/log/nginx/error.log 
